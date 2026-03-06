@@ -24,9 +24,7 @@ public class JanelaPrincipal extends JFrame {
 
         this.visualizador = new Visualizador(arrayAtual);
 
-        // Monta o menu superior
         var painelMenu = new JPanel();
-        // Adicione os próximos algoritmos aqui depois:
         var comboAlgoritmos = new JComboBox<>(new String[]{"Bubble Sort","Selection Sort","Em Construção"});
         var btnRodar = new JButton("Dar a Largada");
         var btnEmbaralhar = new JButton("Embaralhar");
@@ -36,7 +34,6 @@ public class JanelaPrincipal extends JFrame {
         painelMenu.add(btnRodar);
         painelMenu.add(btnEmbaralhar);
 
-        // Ações dos botões
         btnEmbaralhar.addActionListener(_ -> {
             arrayAtual = gerarArray(80);
             visualizador.setArray(arrayAtual);
@@ -48,7 +45,6 @@ public class JanelaPrincipal extends JFrame {
             Thread.startVirtualThread(() -> {
                 String escolha = Objects.requireNonNull(comboAlgoritmos.getSelectedItem()).toString();
 
-                // O Switch visionário do JDK 25. Copie e cole linhas aqui no futuro:
                 AlgoritmoOrdenacao motor = switch (escolha) {
                     case "Bubble Sort" -> new BubbleSort();
                     case "Selection Sort" -> new SelectionSort();

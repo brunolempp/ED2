@@ -23,7 +23,7 @@ public class Visualizador extends JPanel {
         repaint();
         try {
             Thread.sleep(milisegundos);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException _) {}
     }
 
     public void setArray(int[] novoArray) {
@@ -37,9 +37,8 @@ public class Visualizador extends JPanel {
 
         if (array == null || array.length == 0) return;
 
-        // Usando double para a matemática não deixar buracos pretos na tela
         double larguraBarra = (double) getWidth() / array.length;
-        double alturaProporcao = (double) getHeight() / 100.0; // 100 é o valor máximo do array
+        double alturaProporcao = (double) getHeight() / 100.0;
 
         for (var i = 0; i < array.length; i++) {
 
@@ -49,12 +48,10 @@ public class Visualizador extends JPanel {
                 g.setColor(Color.CYAN);
             }
 
-            // Calculando o (X, Y) exato para colunas verticais
             int x = (int) (i * larguraBarra);
             int altura = (int) (array[i] * alturaProporcao);
-            int y = getHeight() - altura; // Joga a barra lá pro chão da janela
+            int y = getHeight() - altura;
 
-            // Math.ceil garante que a barra preencha 100% do espaço, sem vãos
             g.fillRect(x, y, (int) Math.ceil(larguraBarra), altura);
         }
     }
