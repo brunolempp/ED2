@@ -13,7 +13,7 @@ public class BubbleSort implements AlgoritmoOrdenacao{
 
             for(int i = 0; i < tamanho - 1; i++){
                 v.atualizarDestaques(i,i + 1);
-                v.pausar(15);
+                v.pausar(2);
 
                 if(array[i] > array[i+1]){
                     int auxTemp = array[i];
@@ -21,7 +21,7 @@ public class BubbleSort implements AlgoritmoOrdenacao{
                     array[i+1] = auxTemp;
 
                     trocou = true;
-                    v.pausar(15);
+                    v.pausar(2);
                 }
             }
             tamanho--;
