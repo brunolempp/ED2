@@ -38,7 +38,7 @@ src/
 | # | Algoritmo | Complexidade (Pior caso) | Status |
 |---|-----------|--------------------------|--------|
 | 1 | Bubble Sort | O(n²) | ✅ Implementado |
-| 2 | Selection Sort | O(n²) | 🚧 Em desenvolvimento |
+| 2 | Selection Sort | O(n²) | ✅ Implementado |
 | — | *Próximos algoritmos...* | — | 🔜 Em breve |
 
 > Novos algoritmos serão adicionados conforme solicitado pelo professor.
@@ -65,7 +65,7 @@ O parâmetro `Visualizador v` permite que cada algoritmo acione as animações d
 ## 🚀 Como Executar
 
 ### Pré-requisitos
-- **Java 21+** (o projeto utiliza Virtual Threads via `Thread.startVirtualThread`)
+- **Java 25** (o projeto utiliza Virtual Threads via `Thread.startVirtualThread`)
 - **IntelliJ IDEA** (recomendado) ou qualquer IDE com suporte a Java
 
 ### Passos
@@ -80,7 +80,7 @@ O parâmetro `Visualizador v` permite que cada algoritmo acione as animações d
 
 ## 🛠️ Tecnologias
 
-- **Java 21+**
+- **Java 25**
 - **Java Swing** — interface gráfica
 - **Virtual Threads** — execução assíncrona da animação sem travar a UI
 
