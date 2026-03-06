@@ -13,8 +13,8 @@ public class JanelaPrincipal extends JFrame {
     private final Visualizador visualizador;
     private int[] arrayAtual;
 
-    public JanelaPrincipal(int[] arrayInicial) {
-        this.arrayAtual = arrayInicial;
+    public JanelaPrincipal() {
+        this.arrayAtual = gerarArray(80);
 
         setTitle("Laboratório ED2 - Uniube");
         setSize(800, 600);
