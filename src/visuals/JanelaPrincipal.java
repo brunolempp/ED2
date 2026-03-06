@@ -2,13 +2,15 @@ package visuals;
 
 import algoritmos.AlgoritmoOrdenacao;
 import algoritmos.BubbleSort;
+import algoritmos.SelectionSort;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 import java.util.Random;
 
 public class JanelaPrincipal extends JFrame {
-    private Visualizador visualizador;
+    private final Visualizador visualizador;
     private int[] arrayAtual;
 
     public JanelaPrincipal(int[] arrayInicial) {
@@ -25,7 +27,7 @@ public class JanelaPrincipal extends JFrame {
         // Monta o menu superior
         var painelMenu = new JPanel();
         // Adicione os próximos algoritmos aqui depois:
-        var comboAlgoritmos = new JComboBox<>(new String[]{"Bubble Sort", "Em Construção"});
+        var comboAlgoritmos = new JComboBox<>(new String[]{"Bubble Sort","Selection Sort","Em Construção"});
         var btnRodar = new JButton("Dar a Largada");
         var btnEmbaralhar = new JButton("Embaralhar");
 
@@ -35,20 +37,21 @@ public class JanelaPrincipal extends JFrame {
         painelMenu.add(btnEmbaralhar);
 
         // Ações dos botões
-        btnEmbaralhar.addActionListener(e -> {
+        btnEmbaralhar.addActionListener(_ -> {
             arrayAtual = gerarArray(80);
             visualizador.setArray(arrayAtual);
         });
 
-        btnRodar.addActionListener(e -> {
+        btnRodar.addActionListener(_ -> {
             btnRodar.setEnabled(false);
 
             Thread.startVirtualThread(() -> {
-                String escolha = comboAlgoritmos.getSelectedItem().toString();
+                String escolha = Objects.requireNonNull(comboAlgoritmos.getSelectedItem()).toString();
 
                 // O Switch visionário do JDK 25. Copie e cole linhas aqui no futuro:
                 AlgoritmoOrdenacao motor = switch (escolha) {
                     case "Bubble Sort" -> new BubbleSort();
+                    case "Selection Sort" -> new SelectionSort();
                     default -> new BubbleSort();
                 };
 
