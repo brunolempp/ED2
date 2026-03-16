@@ -2,6 +2,7 @@ package visuals;
 
 import algoritmos.AlgoritmoOrdenacao;
 import algoritmos.BubbleSort;
+import algoritmos.InsertionSort;
 import algoritmos.SelectionSort;
 
 import javax.swing.*;
@@ -25,7 +26,7 @@ public class JanelaPrincipal extends JFrame {
         this.visualizador = new Visualizador(arrayAtual);
 
         var painelMenu = new JPanel();
-        var comboAlgoritmos = new JComboBox<>(new String[]{"Bubble Sort","Selection Sort","Em Construção"});
+        var comboAlgoritmos = new JComboBox<>(new String[]{"Bubble Sort", "Selection Sort", "Insertion Sort"});
         var btnRodar = new JButton("Dar a Largada");
         var btnEmbaralhar = new JButton("Embaralhar");
 
@@ -48,6 +49,7 @@ public class JanelaPrincipal extends JFrame {
                 AlgoritmoOrdenacao motor = switch (escolha) {
                     case "Bubble Sort" -> new BubbleSort();
                     case "Selection Sort" -> new SelectionSort();
+                    case "Insertion Sort" -> new InsertionSort();
                     default -> new BubbleSort();
                 };
 
