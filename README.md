@@ -35,7 +35,6 @@ A aplicação exibe barras verticais representando os valores de um array gerado
 - Execução da ordenação em **Virtual Thread**, mantendo a UI responsiva
 - Botão **Abortar** para interromper o motor em execução
 - Slider de velocidade para ajustar o ritmo da animação em tempo real
-- Pausas adaptativas: em arrays grandes, a animação fica mais rápida automaticamente
 - Ao concluir, o gráfico recebe uma animação final do menor ao maior, pintando as barras de verde
 - Método de embaralhamento com geração aleatória a cada clique
 
@@ -84,11 +83,12 @@ O `Visualizador` é usado para animação durante o algoritmo:
 - `v.atualizarDestaques(i, j)` para destacar índices
 - `v.pausar(ms)` para controlar a velocidade visual
 
-### Animação adaptativa
+### Controle de velocidade
 
-A pausa visual é reduzida automaticamente quando o array cresce muito:
-- arrays menores mantêm a animação mais visível
-- arrays grandes quase eliminam a pausa, deixando a ordenação mais rápida
+O ritmo da animação é ajustado pelo slider da interface:
+- valores menores deixam a animação mais lenta e detalhada
+- valores maiores deixam a animação mais rápida
+- o ajuste vale para a ordenação e para a animação final de conclusão
 
 ---
 
