@@ -8,23 +8,35 @@ Projeto da disciplina de **Estruturas de Dados II** (**Uniube**) para visualizar
 
 A aplicação exibe barras verticais representando os valores de um array gerado aleatoriamente.
 
-- Quantidade atual de elementos: **80**
-- Faixa dos valores: **1 a 100**
+### Configurações atuais
+- Tamanho padrão da array: **1000**
+- Tamanho ajustável pela interface: **10 a 10000**
+- Faixa dos valores gerados: **1 até tamanho × 10**
 - Barras em comparação: **vermelho**
 - Demais barras: **ciano**
 
-Controles disponíveis:
-- Selecionar o algoritmo no combo box
-- Clicar em **"Dar a Largada"** para iniciar a ordenação
-- Clicar em **"Embaralhar"** para gerar um novo array aleatório
+### Controles disponíveis
+- Campo para alterar o **tamanho da array**
+- Combo para selecionar o algoritmo, iniciando em **"Escolha"**
+- Slider para controlar a **velocidade do gráfico** em tempo real
+- Botão **"Dar a Largada"** para iniciar a ordenação
+- Botão **"Embaralhar"** para gerar um novo array aleatório
+- Botão **"Abortar"** para interromper a execução em andamento
+- Animação de conclusão: barras ficam **verdes** em sequência ao terminar a ordenação
 
 ---
 
 ## ✅ Adições já efetuadas
 
 - Inclusão do **Insertion Sort** no projeto e na interface
-- Ajuste das pausas para animação mais rápida (**2 ms** por passo visual)
+- Inclusão do **Shell Sort** na interface
+- Combo de algoritmos iniciado com a opção neutra **"Escolha"**
+- Campo para alterar o tamanho do array sem editar o código
 - Execução da ordenação em **Virtual Thread**, mantendo a UI responsiva
+- Botão **Abortar** para interromper o motor em execução
+- Slider de velocidade para ajustar o ritmo da animação em tempo real
+- Pausas adaptativas: em arrays grandes, a animação fica mais rápida automaticamente
+- Ao concluir, o gráfico recebe uma animação final do menor ao maior, pintando as barras de verde
 - Método de embaralhamento com geração aleatória a cada clique
 
 ---
@@ -38,7 +50,8 @@ src/
 │   ├── AlgoritmoOrdenacao.java
 │   ├── BubbleSort.java
 │   ├── SelectionSort.java
-│   └── InsertionSort.java
+│   ├── InsertionSort.java
+│   └── ShellSort.java
 └── visuals/
     ├── JanelaPrincipal.java
     └── Visualizador.java
@@ -53,6 +66,7 @@ src/
 | Bubble Sort | O(n²) | ✅ |
 | Selection Sort | O(n²) | ✅ |
 | Insertion Sort | O(n²) | ✅ |
+| Shell Sort | depende do gap utilizado | ✅ |
 
 > Novos algoritmos podem ser adicionados conforme as próximas atividades da disciplina.
 
@@ -68,7 +82,13 @@ public interface AlgoritmoOrdenacao {
 
 O `Visualizador` é usado para animação durante o algoritmo:
 - `v.atualizarDestaques(i, j)` para destacar índices
-- `v.pausar(ms)` para controlar velocidade visual
+- `v.pausar(ms)` para controlar a velocidade visual
+
+### Animação adaptativa
+
+A pausa visual é reduzida automaticamente quando o array cresce muito:
+- arrays menores mantêm a animação mais visível
+- arrays grandes quase eliminam a pausa, deixando a ordenação mais rápida
 
 ---
 
